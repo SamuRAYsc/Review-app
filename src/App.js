@@ -10,31 +10,31 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
-function MyApp() {
+function ThemeSwitchButton() {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
   return (
     <Box
       sx={{
-        display: 'flex',
-        width: '100%',
+        position: 'fixed',
+        right: 0,
+        bottom: 40,
         alignItems: 'center',
         justifyContent: 'center',
         bgcolor: 'background.default',
         color: 'text.primary',
-        borderRadius: 1,
-        p: 3,
+        borderRadius: 4,
+        p: 1,
       }}
     >
-      {theme.palette.mode} mode
-      <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+      <IconButton onClick={colorMode.toggleColorMode} color="inherit">
         {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
       </IconButton>
     </Box>
   );
 }
 
-export default function ToggleColorMode() {
+function ToggleColorMode() {
   const [mode, setMode] = React.useState('light');
   const colorMode = React.useMemo(
     () => ({
@@ -56,11 +56,18 @@ export default function ToggleColorMode() {
   );
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
+    [colorMode, theme]
+  );
+}
+
+function App() {
+  let [colorMode, theme] = ToggleColorMode();
+  return(
+  <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
       <div className="App">
         <Navbar/>
-        <MyApp/>
+        <ThemeSwitchButton/>
         <div className='content'>
           <h1>Content section</h1>
           <LoginForm/>
@@ -68,7 +75,7 @@ export default function ToggleColorMode() {
       </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
-  );
+  )
 }
 
 // function App() {
@@ -88,4 +95,4 @@ export default function ToggleColorMode() {
 //   );
 // }
 
-// export default App;
+export default App;

@@ -18,11 +18,11 @@ function LoginForm() {
         >
             <Paper variant="outlined"
             sx={{
-            p: 2,
+            p: 3,
             width: '40vw',
             }}> 
                 <h1>Login</h1>
-                <Stack spacing={2} id="form-inputs">
+                <Stack spacing={3} id="form-inputs">
                     <TextField id="email-input" label="Email" />
                     <TextField id="password-input" label="Password" />
                 </Stack>
