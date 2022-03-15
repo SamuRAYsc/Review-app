@@ -30,7 +30,8 @@ function Navbar() {
                             }}
                             >
                     <Link href="/" >Home</Link>
-                    <Link href="/" >My reviews</Link>
+                    <Link href="/user" >My reviews</Link>
+                    <Link href="/login" >Login</Link>
                 </Stack>
                 <TextField id="fts_input" label="Search" variant="outlined" />
             </Box>
