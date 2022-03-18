@@ -77,7 +77,7 @@ function App() {
           <div className='content'>
             <Routes>
               <Route path="/" element={<Home/>} theme={theme}/>
-              <Route path="login/" element={<LoginForm/>} theme={theme}/>
+              <Route path="login/" element={<LoginForm/>} theme={theme} />
               <Route path="user/*" element={<UserHome/>} theme={theme}/>
               <Route path="post/*" element={<Post/>} theme={theme}/>
             </Routes>

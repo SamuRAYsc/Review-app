@@ -1,23 +1,22 @@
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import { DataGrid } from '@mui/x-data-grid';
 import { styled } from '@mui/material/styles';
 
 const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.background.default, color: theme.palette.text.secondary,}) )
 const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'name', headerName: 'Name', width: 130 },
-    { field: 'mail', headerName: 'Mail', width: 130 },
+    { field: 'id', headerName: 'ID' },
+    { field: 'name', headerName: 'Name', flex:1 },
+    { field: 'review', headerName: 'review', flex:1, renderCell: (params) => (
+        <Link href={`/post/${params.value}`}>{params.value}</Link>
+      )},
   ];
   const rows = [ 
-    { id: 1, name: 'Snow', mail: 'Jon@wntr.bdr'},
-    { id: 2, name: 'Test', mail: 'test@test.ru'},
-    { id: 3, name: 'Kek', mail: 'kek@ch.hk'},
-    { id: 4, name: 'John', mail: 'Jon'},
-    { id: 5, name: 'Snow', mail: 'Jon'},
-    { id: 6, name: 'Snow', mail: 'Jon'},
-    { id: 7, name: 'Snow', mail: 'Jon'},
-    { id: 8, name: 'Snow', mail: 'Jon'},
+    { id: 1, name: 'Snow', review: 'Jon@wntr.bdr'},
+    { id: 2, name: 'Test', review: 'test@test.ru'},
+    { id: 3, name: 'Kek', review: 'kek@ch.hk'},
+    { id: 4, name: 'John', review: 'Jon'},
   ];
 
 function UserHome() {
@@ -35,8 +34,11 @@ function UserHome() {
                 pageSize={8}
                 rowsPerPageOptions={[10]}
                 checkboxSelection
+                columnVisibilityModel={{
+                    id: false,
+                }}
                 sx={{
-                    height:'86%'
+                    height:'70%'
                 }}
             />
         </Box1>
