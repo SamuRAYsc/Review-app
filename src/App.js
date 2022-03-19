@@ -66,19 +66,20 @@ function ToggleColorMode() {
 }
 
 function App() {
-  let [colorMode, theme] = ToggleColorMode();
+  const [activeUser, setActiveUser] = React.useState('');
+  const [colorMode, theme] = ToggleColorMode();
   return(
   <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
       <div className="App">
-        <Navbar/>
+        <Navbar user={activeUser}/>
         <ThemeSwitchButton />
         <Router>
           <div className='content'>
             <Routes>
               <Route path="/" element={<Home/>} theme={theme}/>
-              <Route path="login/" element={<LoginForm/>} theme={theme} />
-              <Route path="user/*" element={<UserHome/>} theme={theme}/>
+              <Route path="login/" element={<LoginForm user={activeUser} onUserChange={setActiveUser}/>} theme={theme} />
+              <Route path="user/*" element={<UserHome user={activeUser}/>} theme={theme}/>
               <Route path="post/*" element={<Post/>} theme={theme}/>
             </Routes>
           </div>

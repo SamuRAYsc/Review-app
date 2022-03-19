@@ -1,5 +1,6 @@
 import './LoginForm.css';
-import { useState } from 'react';
+import { useState} from 'react';
+import {useNavigate} from 'react-router-dom'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -7,10 +8,10 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import axios from 'axios'
 
-function LoginForm() {
+function LoginForm(props) {
     const [authUsername, setAuthUsername] = useState('');
     const [authPassword, setAuthPassword] = useState('');
-    const [activeUser, setActiveUser] = useState('');
+    const navigate = useNavigate();
     const register = () => {
         axios({
             method:"post",
@@ -34,7 +35,15 @@ function LoginForm() {
             withCredentials: true,
             url: "http://localhost:8080/login"
         }).then(
-            res => console.log(res)
+            res => {
+                if (res.data === false) navigate('/login');
+                else{
+                    props.onUserChange(res.data);
+                    navigate(`/user/${res.data.id}`)
+                    console.log(res)
+                }
+                
+            }
         );
     }
     return(

@@ -6,7 +6,7 @@ import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 
 
-function Navbar() {
+function Navbar(props) {
     return(
         <Paper sx={{ borderRadius: 0 }}>
             <nav className="navbar">
@@ -18,7 +18,7 @@ function Navbar() {
                 p: 1,
                 }}
             >
-                <h1>Username</h1>
+                <h1>{props.user.email||'Username'}</h1>
                 <Stack id="nav-links"  direction="row"
                             justifyContent="space-between"
                             alignItems="center"
