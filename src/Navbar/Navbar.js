@@ -4,9 +4,14 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
+import axios from 'axios';
+import { UserContext } from '../UserContext';
+import { useContext } from 'react';
 
 
-function Navbar(props) {
+function Navbar() {
+    const user = useContext(UserContext);
+    console.log(user);
     return(
         <Paper sx={{ borderRadius: 0 }}>
             <nav className="navbar">
@@ -16,9 +21,10 @@ function Navbar(props) {
                 alignItems: 'center',
                 justifyContent: 'space-around',
                 p: 1,
+                flexWrap: 'wrap',
                 }}
             >
-                <h1>{props.user.email||'Username'}</h1>
+                <h1>{user?.email ||'Guest'}</h1>
                 <Stack id="nav-links"  direction="row"
                             justifyContent="space-between"
                             alignItems="center"
@@ -28,10 +34,19 @@ function Navbar(props) {
                                 ml: 2,
                                 },
                             }}
+                            py={{xs:2, sm:0}}
+                            order={{xs: 1, sm: 0 }}
                             >
                     <Link href="/" >Home</Link>
-                    <Link href="/user" >My reviews</Link>
-                    <Link href="/login" >Login</Link>
+                    {user ? (<>
+                        {user.isAdmin ? (<Link href="/admin" >Admin</Link>) : null}
+                        <Link href="/userHome" >My reviews</Link>
+                        <Link href="/" onClick={() => {axios.get("http://localhost:8080/logout",{ withCredentials:true})}}>LogOut</Link>
+                        </>
+                    ):(
+                        <Link href="/login" >Login</Link>
+                    )}
+
                 </Stack>
                 <TextField id="fts_input" label="Search" variant="outlined" />
             </Box>

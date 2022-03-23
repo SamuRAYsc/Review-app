@@ -1,5 +1,5 @@
 import './LoginForm.css';
-import { useState} from 'react';
+import { useContext, useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import axios from 'axios'
 
-function LoginForm(props) {
+function LoginForm() {
     const [authUsername, setAuthUsername] = useState('');
     const [authPassword, setAuthPassword] = useState('');
     const navigate = useNavigate();
@@ -26,25 +26,19 @@ function LoginForm(props) {
         );
     }
     const login = () => {
-        axios({
-            method:"post",
-            data: {
+        axios.post("http://localhost:8080/login",{
                 username: authUsername,
                 password: authPassword
-            },
-            withCredentials: true,
-            url: "http://localhost:8080/login"
+            },{
+                withCredentials: true,
         }).then(
             res => {
-                if (res.data === false) navigate('/login');
-                else{
-                    props.onUserChange(res.data);
-                    navigate(`/user/${res.data.id}`)
-                    console.log(res)
-                }
-                
+                navigate(-1);
             }
-        );
+        ).catch(err => {
+            setAuthUsername('');
+            setAuthPassword('');
+        })
     }
     return(
         <Box
@@ -55,16 +49,18 @@ function LoginForm(props) {
             p: 4,
             backgroundColor: 'palette.action.disabledBackground',
       }}
+      px={{xs:'10vw', sm:'20vw', md:'30vw'}}
         >
             <Paper variant="outlined"
             sx={{
             p: 3,
-            width: '40vw',
-            }}> 
+            width:'100%'
+            }}
+            > 
                 <h1>Login</h1>
                 <Stack spacing={3} id="form-inputs">
-                    <TextField id="email-input" label="Email" onChange={e => setAuthUsername(e.target.value)}/>
-                    <TextField id="password-input" label="Password" onChange={e => setAuthPassword(e.target.value)}/>
+                    <TextField id="email-input" label="Email" value={authUsername} onChange={e => setAuthUsername(e.target.value)}/>
+                    <TextField id="password-input" label="Password" value={authPassword} onChange={e => setAuthPassword(e.target.value)}/>
                 </Stack>
                 <Stack id="form-controls"  direction="row"
                         justifyContent="space-between"
