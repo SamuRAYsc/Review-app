@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const UserContext = createContext();
 
@@ -13,11 +13,5 @@ function UserConProvider(props) {
 
     return <UserContext.Provider value={user} {...props}/>
 }
-
-// function useUserCon() {
-//     const context = useContext(UserContext)
-//     //if(!context) throw new Error('Not inside the Provider');
-//     return context;
-// }
 
 export {UserConProvider};
