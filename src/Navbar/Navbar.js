@@ -11,7 +11,6 @@ import { useContext } from 'react';
 
 function Navbar() {
     const user = useContext(UserContext);
-    console.log(user);
     return(
         <Paper sx={{ borderRadius: 0 }}>
             <nav className="navbar">
@@ -41,7 +40,7 @@ function Navbar() {
                     {user ? (<>
                         {user.isAdmin ? (<Link href="/admin" >Admin</Link>) : null}
                         <Link href="/userHome" >My reviews</Link>
-                        <Link href="/" onClick={() => {axios.get("http://localhost:8080/logout",{ withCredentials:true})}}>LogOut</Link>
+                        <Link href="/" onClick={() => {axios.get("https://review-api-2022.herokuapp.com/logout",{ withCredentials:true})}}>LogOut</Link>
                         </>
                     ):(
                         <Link href="/login" >Login</Link>

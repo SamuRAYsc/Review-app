@@ -20,20 +20,22 @@ function LoginForm() {
                 password: authPassword
             },
             withCredentials: true,
-            url: "http://localhost:8080/register"
+            url: "https://review-api-2022.herokuapp.com/register"
         }).then(
             res => console.log(res)
         );
     }
     const login = () => {
-        axios.post("http://localhost:8080/login",{
+        axios.post("https://review-api-2022.herokuapp.com/login",{
                 username: authUsername,
                 password: authPassword
             },{
                 withCredentials: true,
         }).then(
             res => {
-                navigate(-1);
+                console.log("session user res ")
+                console.log(res)
+               // navigate(-1);
             }
         ).catch(err => {
             setAuthUsername('');

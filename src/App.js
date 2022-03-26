@@ -70,7 +70,7 @@ function ToggleTheme() {
 
 function App() {
   const [colorMode, theme] = ToggleTheme();
-  const user = React.useContext(UserContext)
+  const user = React.useContext(UserContext);
   return(
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>

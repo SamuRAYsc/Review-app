@@ -1,4 +1,4 @@
-import Axios from "axios";
+import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
 export const UserContext = createContext();
@@ -6,8 +6,10 @@ export const UserContext = createContext();
 function UserConProvider(props) {
     const [user, setUser] = useState();
     useEffect(() => {
-        Axios.get("http://localhost:8080/user",{ withCredentials:true}).then(res =>{
-            setUser(res.data)
+        axios.get("https://review-api-2022.herokuapp.com/user",{ withCredentials:true}).then(res =>{
+            console.log("get res");
+            console.log(res);
+            setUser(res.data);
         })
     },[])
 
