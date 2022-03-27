@@ -32,10 +32,14 @@ function LoginForm() {
             },{
                 withCredentials: true,
         }).then(
-            res => {
-                console.log("session user res ")
-                console.log(res)
+            res => { if (res.data === 'Login Failed! Try again') {
+                setAuthUsername('');
+                setAuthPassword('');
+            } else {
+                console.log("session user res ");
+                console.log(res);
                // navigate(-1);
+            }
             }
         ).catch(err => {
             setAuthUsername('');
