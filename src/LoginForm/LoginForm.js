@@ -19,7 +19,7 @@ function LoginForm() {
                 username: authUsername,
                 password: authPassword
             },
-            withCredentials: true,
+            // withCredentials: true,
             url: "https://review-api-2022.herokuapp.com/register"
         }).then(
             res => console.log(res)
@@ -30,7 +30,7 @@ function LoginForm() {
                 username: authUsername,
                 password: authPassword
             },{
-                withCredentials: true,
+                // withCredentials: true,
         }).then(
             res => {
                 console.log("session user res ")

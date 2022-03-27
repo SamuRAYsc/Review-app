@@ -7,7 +7,7 @@ function UserConProvider(props) {
     const [user, setUser] = useState();
     useEffect(() => {
         axios.get("https://review-api-2022.herokuapp.com/user",
-        { withCredentials:true}
+        // { withCredentials:true}
         ).then(res =>{
             console.log("get res");
             console.log(res);
