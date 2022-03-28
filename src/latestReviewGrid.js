@@ -28,7 +28,7 @@ const LatestReviewGrid = ({latestReviews}) => {
                         {review.description}
                     </Typography>
                     <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
-                        {review.updatedAt.replace(/[a-zA-Z]/g, ' ')}
+                        {review.updatedAt.split('.')[0].replace(/[a-zA-Z]/g, ' ')}
                     </Typography>
                     </Item>
                 </CardActionArea>
