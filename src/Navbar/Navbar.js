@@ -7,11 +7,10 @@ import Paper from '@mui/material/Paper';
 import axios from 'axios';
 import { UserContext } from '../UserContext';
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 function Navbar() {
     const user = useContext(UserContext);
-    const navigate = useNavigate();
     return(
         <Paper sx={{ borderRadius: 0 }}>
             <nav className="navbar">
@@ -46,7 +45,7 @@ function Navbar() {
                         )}}>LogOut</Link>
                         </>
                     ):(
-                        <Link onClick={navigate("/login")} >Login</Link>
+                        <Link href="/login" >Login</Link>
                     )}
 
                 </Stack>
