@@ -17,7 +17,7 @@ const LatestReviewGrid = (latestReviews) => {
     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {latestReviews.map((review) => (
                 /* <p>{review.name}</p> */
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4} key={review.id}>
                 <Item  variant="outlined">1</Item>
             </Grid>
             ))}
