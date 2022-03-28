@@ -13,10 +13,10 @@ function UserHome() {
   
   const columns = [
     { field: 'id', headerName: 'ID' },
-    { field: 'name', headerName: 'Name', flex:1, renderCell: (params) => (
+    { field: 'email', headerName: 'Name', flex:1, renderCell: (params) => (
       <Link href={`/user/${params.value}`}>{params.value}</Link>
       )},
-      { field: 'Admin', headerName: 'Admin', flex:1,}
+      { field: 'isAdmin', headerName: 'Admin', flex:1,}
     ];
     useEffect(() => {
         axios.get("https://review-api-2022.herokuapp.com/userlist",
