@@ -28,8 +28,8 @@ function LoginForm() {
     }
     const login = () => { 
         axios.post("https://review-api-2022.herokuapp.com/login",{
-                username: authUsername,
-                password: authPassword
+                username: authUsername.replace(/\s/g, ''),
+                password: authPassword.replace(/\s/g, '')
             },{
                 withCredentials: true,
         }).then(
