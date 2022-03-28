@@ -12,7 +12,7 @@ const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.backgrou
 const columns = [
     { field: 'id', headerName: 'ID' },
     { field: 'name', headerName: 'Name', flex:1,  renderCell: (params) => (
-        <Link href={`/review/${params.value.replace(/\s/g, '')}`}>{params.value}</Link>
+        <Link href={`/review/${params.value.replace(/\s/g, '-')}`} onClick={(e) => {e.stopPropagation();}}>{params.value}</Link>
     )},
     { field: 'updatedAt', headerName: 'last update', flex:1},
   ];
