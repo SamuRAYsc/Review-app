@@ -91,10 +91,11 @@ function Home() {
                 <Grid item xs={12} sm={6} md={4}>
                     <Item  variant="outlined">2</Item>
                 </Grid>
-                        {latestReviews.map( review => {
-
-                        return(
-                            <Grid item xs={12} sm={6} md={4}>
+                {({latestReviews}) => {
+                    return (
+                        <>{
+                        latestReviews.map( review => (
+                            <Grid item xs={12} sm={6} md={4} key={review.id}>
                                 <Item  variant="outlined">
                                 <Typography gutterBottom variant="h3" component="div">
                                     {review.name}
@@ -107,10 +108,10 @@ function Home() {
                                 </Typography>
                                 </Item>
                             </Grid> 
-                        )
-                        } 
-                        )}
+                        ))
+                        }</>
                     )
+                }}
             </Grid>
         </Box1>
 
