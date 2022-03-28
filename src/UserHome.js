@@ -12,7 +12,7 @@ const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.backgrou
 const columns = [
     { field: 'id', headerName: 'ID' },
     { field: 'name', headerName: 'Name', flex:1,  renderCell: (params) => (
-        <Link href={`/review/${params.value}`}>{params.value}</Link>
+        <Link href={`/review/${params.value.replace(/\s/g, '')}`}>{params.value}</Link>
     )},
     { field: 'updatedAt', headerName: 'last update', flex:1},
   ];
@@ -43,7 +43,7 @@ function UserHome() {
         flex: '1 1 auto',
         }}>
             <Typography gutterBottom variant="h3" component="div">
-            {(user?.email,"'s") ||'My'} reviews
+            {user ? (`${user.email}'s`) : 'My'} reviews
             </Typography>
             <DataGrid
                 rows={rows}
