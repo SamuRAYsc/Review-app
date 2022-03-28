@@ -91,7 +91,7 @@ function Home() {
                 <Grid item xs={12} sm={6} md={4}>
                     <Item  variant="outlined">2</Item>
                 </Grid>
-                {(latestReviews) => {
+                { function Render(latestReviews) {
                     console.log(latestReviews);
                     return (
                         <>{
