@@ -11,11 +11,11 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-const latestReviewGrid = (latestReviews) => {
-    console.log(latestReviews);
+const latestReviewGrid = ({data}) => {
+    console.log(data);
     return (
         <>
-            {latestReviews.map((review) => (
+            {data.map((review) => (
                 <p>{review.name}</p>
             ))}
         </>
