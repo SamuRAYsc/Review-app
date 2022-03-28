@@ -14,7 +14,11 @@ const columns = [
     { field: 'name', headerName: 'Name', flex:1,  renderCell: (params) => (
         <Link href={`/review/${params.value.replace(/\s/g, '-')}`} onClick={(e) => {e.stopPropagation();}}>{params.value}</Link>
     )},
-    { field: 'updatedAt', headerName: 'last update', flex:1},
+    { field: 'updatedAt', headerName: 'last update', flex:1, renderCell: (params) => (
+        <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
+            {params.value.replace(/[a-zA-Z]/g, ' ')}
+        </Typography>
+    )},
   ];
 
 function UserHome() {
