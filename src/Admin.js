@@ -22,13 +22,12 @@ function UserHome() {
         axios.get("https://review-api-2022.herokuapp.com/userlist",
         { withCredentials:true}
         ).then(res =>{
-            setUserlist(res);
+            console.log(res);
+            setUserlist(res.data);
         })
     },[])
-    const rows = [];
-    for (let user in userlist){
-      rows.push({id: user.id, name: user.email, Admin: user.isAdmin });
-    }
+    const rows = userlist;
+
     return(
         <Box1
         sx={{
