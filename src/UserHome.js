@@ -24,7 +24,6 @@ function UserHome() {
         axios.get("https://review-api-2022.herokuapp.com/userreviews",
         { withCredentials:true}
         ).then(res =>{
-            console.log(res);
             setReviewlist(res.data);
         })
     },[])
