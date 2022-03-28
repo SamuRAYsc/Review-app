@@ -7,6 +7,7 @@ import { CardActionArea, CardMedia, CardContent } from '@mui/material';
 import {useNavigate} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import latestReviewGrid from './latestReviewGrid';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.action.hover,
@@ -15,6 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   }));
+
 const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.background.default, color: theme.palette.text.secondary,}) );
 
 function Home() {
@@ -84,36 +86,7 @@ function Home() {
             <Typography gutterBottom variant="h3" component="div">
                 Reviews
             </Typography>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                <Grid item xs={12} sm={6} md={4}>
-                    <Item  variant="outlined">1</Item>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <Item  variant="outlined">2</Item>
-                </Grid>
-                { function Render(latestReviews) {
-                    console.log(latestReviews);
-                    return (
-                        <>{
-                        latestReviews.map( review => (
-                            <Grid item xs={12} sm={6} md={4} key={review.id}>
-                                <Item  variant="outlined">
-                                <Typography gutterBottom variant="h3" component="div">
-                                    {review.name}
-                                </Typography>
-                                <Typography gutterBottom variant="h4" component="div">
-                                    {review.description}
-                                </Typography>
-                                <Typography gutterBottom variant="h4" component="div">
-                                    {review.updatedAt}
-                                </Typography>
-                                </Item>
-                            </Grid> 
-                        ))
-                        }</>
-                    )
-                }}
-            </Grid>
+            <latestReviewGrid prop={latestReviews}></latestReviewGrid>
         </Box1>
 
 )}
