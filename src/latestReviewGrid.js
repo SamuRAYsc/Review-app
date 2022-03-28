@@ -14,15 +14,36 @@ const Item = styled(Paper)(({ theme }) => ({
 const latestReviewGrid = (latestReviews) => {
     console.log(latestReviews);
     return (
-    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid item xs={12} sm={6} md={4}>
-            <Item  variant="outlined">1</Item>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-            <Item  variant="outlined">2</Item>
-        </Grid>
+        <>
+            {latestReviews.map((review) => (
+                <p>{review.name}</p>
+            ))}
+        </>
+    // <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+    //     <Grid item xs={12} sm={6} md={4}>
+    //         <Item  variant="outlined">1</Item>
+    //     </Grid>
+    //     <Grid item xs={12} sm={6} md={4}>
+    //         <Item  variant="outlined">2</Item>
+    //     </Grid>
                 
-    </Grid>
+    // </Grid>
+
+    // latestReviews.map( review => (
+    //     <Grid item xs={12} sm={6} md={4} key={review.id}>
+    //         <Item  variant="outlined">
+    //         <Typography gutterBottom variant="h3" component="div">
+    //             {review.name}
+    //         </Typography>
+    //         <Typography gutterBottom variant="h4" component="div">
+    //             {review.description}
+    //         </Typography>
+    //         <Typography gutterBottom variant="h4" component="div">
+    //             {review.updatedAt}
+    //         </Typography>
+    //         </Item>
+    //     </Grid> 
+    // ))
     )
 };
 
