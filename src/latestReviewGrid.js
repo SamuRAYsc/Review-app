@@ -21,24 +21,16 @@ const LatestReviewGrid = ({latestReviews}) => {
              <Typography gutterBottom variant="h3" component="div">
                  {review.name}
              </Typography>
-             <Typography gutterBottom variant="h4" component="div">
+             <Typography gutterBottom variant="p" component="div">
                  {review.description}
              </Typography>
-             <Typography gutterBottom variant="h4" component="div">
-                 {review.updatedAt}
+             <Typography gutterBottom variant="p" component="div">
+                 {review.updatedAt.replace(/[a-zA-Z]/g, ' ')}
              </Typography>
              </Item>
          </Grid> 
-            ))}
-        {/* <Grid item xs={12} sm={6} md={4}>
-            <Item  variant="outlined">2</Item>
-        </Grid> */}
-                
+            ))}   
     </Grid>
-
-    // latestReviews.map( review => (
-    //     
-    // ))
     )
 };
 
