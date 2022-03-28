@@ -9,8 +9,6 @@ function UserConProvider(props) {
         axios.get("https://review-api-2022.herokuapp.com/user",
         { withCredentials:true}
         ).then(res =>{
-            console.log("get res");
-            console.log(res);
             setUser(res.data);
         })
     },[])

@@ -38,8 +38,8 @@ function Navbar() {
                             >
                     <Link href="/" >Home</Link>
                     {user ? (<>
-                        {user.isAdmin ? (<Link href="/admin" >Admin</Link>) : null}
-                        <Link href="/userHome" >My reviews</Link>
+                        {user.isAdmin ? (<Link href="/admin" >Admin</Link>) :
+                        <Link href="/userHome" >My reviews</Link>}
                         <Link href="/" onClick={() => {axios.get("https://review-api-2022.herokuapp.com/logout",
                         { withCredentials:true}
                         )}}>LogOut</Link>
