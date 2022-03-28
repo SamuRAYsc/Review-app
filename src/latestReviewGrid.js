@@ -16,10 +16,19 @@ const LatestReviewGrid = ({latestReviews}) => {
     return (
     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {latestReviews.map((review) => (
-                /* <p>{review.name}</p> */
             <Grid item xs={12} sm={6} md={4} key={review.id}>
-                <Item  variant="outlined">1</Item>
-            </Grid>
+             <Item  variant="outlined">
+             <Typography gutterBottom variant="h3" component="div">
+                 {review.name}
+             </Typography>
+             <Typography gutterBottom variant="h4" component="div">
+                 {review.description}
+             </Typography>
+             <Typography gutterBottom variant="h4" component="div">
+                 {review.updatedAt}
+             </Typography>
+             </Item>
+         </Grid> 
             ))}
         {/* <Grid item xs={12} sm={6} md={4}>
             <Item  variant="outlined">2</Item>
@@ -28,19 +37,7 @@ const LatestReviewGrid = ({latestReviews}) => {
     </Grid>
 
     // latestReviews.map( review => (
-    //     <Grid item xs={12} sm={6} md={4} key={review.id}>
-    //         <Item  variant="outlined">
-    //         <Typography gutterBottom variant="h3" component="div">
-    //             {review.name}
-    //         </Typography>
-    //         <Typography gutterBottom variant="h4" component="div">
-    //             {review.description}
-    //         </Typography>
-    //         <Typography gutterBottom variant="h4" component="div">
-    //             {review.updatedAt}
-    //         </Typography>
-    //         </Item>
-    //     </Grid> 
+    //     
     // ))
     )
 };
