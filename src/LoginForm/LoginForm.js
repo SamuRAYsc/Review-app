@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import axios from 'axios'
 
 function LoginForm() {
@@ -61,7 +62,9 @@ function LoginForm() {
             width:'100%'
             }}
             > 
-                <h1>Login</h1>
+                <Typography gutterBottom variant="h3" component="div">
+                Login
+                </Typography>
                 <Stack spacing={3} id="form-inputs">
                     <TextField id="email-input" label="Email" value={authUsername} onChange={e => setAuthUsername(e.target.value)}/>
                     <TextField id="password-input" label="Password" value={authPassword} onChange={e => setAuthPassword(e.target.value)}/>

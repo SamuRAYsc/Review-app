@@ -16,12 +16,6 @@ const columns = [
     )},
     { field: 'updatedAt', headerName: 'last update', flex:1},
   ];
-//   const rows = [ 
-//     { id: 1, name: 'Snow', review: 'Jon@wntr.bdr'},
-//     { id: 2, name: 'Test', review: 'test@test.ru'},
-//     { id: 3, name: 'Kek', review: 'kek@ch.hk'},
-//     { id: 4, name: 'John', review: 'Jon'},
-//   ];
 
 function UserHome() {
     const [reviewlist, setReviewlist] = useState();
