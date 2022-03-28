@@ -26,7 +26,6 @@ function Home() {
         axios.get("https://review-api-2022.herokuapp.com/latestReviews",
         { withCredentials:true}
         ).then(res =>{
-            console.log(res);
             setLatestReviews(res.data);
         })
     },[])
