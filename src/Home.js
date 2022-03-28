@@ -7,7 +7,7 @@ import { CardActionArea, CardMedia, CardContent } from '@mui/material';
 import {useNavigate} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import LatestReviewGrid from './LatestReviewGrid';
+import LatestReviewGrid from './latestReviewGrid';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.action.hover,
