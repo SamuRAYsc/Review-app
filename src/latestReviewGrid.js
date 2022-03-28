@@ -11,11 +11,11 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-const LatestReviewGrid = ({data}) => {
-    console.log(data);
+const LatestReviewGrid = (latestReviews) => {
+    console.log(latestReviews);
     return (
     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        {data.map((review) => (
+        {latestReviews.map((review) => (
                 /* <p>{review.name}</p> */
             <Grid item xs={12} sm={6} md={4}>
                 <Item  variant="outlined">1</Item>
