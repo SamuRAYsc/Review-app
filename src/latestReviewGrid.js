@@ -14,20 +14,18 @@ const Item = styled(Paper)(({ theme }) => ({
 const LatestReviewGrid = ({data}) => {
     console.log(data);
     return (
-        <>
-            {data.map((review) => (
-                <p>{review.name}</p>
+    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        {data.map((review) => (
+                /* <p>{review.name}</p> */
+            <Grid item xs={12} sm={6} md={4}>
+                <Item  variant="outlined">1</Item>
+            </Grid>
             ))}
-        </>
-    // <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-    //     <Grid item xs={12} sm={6} md={4}>
-    //         <Item  variant="outlined">1</Item>
-    //     </Grid>
-    //     <Grid item xs={12} sm={6} md={4}>
-    //         <Item  variant="outlined">2</Item>
-    //     </Grid>
+        {/* <Grid item xs={12} sm={6} md={4}>
+            <Item  variant="outlined">2</Item>
+        </Grid> */}
                 
-    // </Grid>
+    </Grid>
 
     // latestReviews.map( review => (
     //     <Grid item xs={12} sm={6} md={4} key={review.id}>
