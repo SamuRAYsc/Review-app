@@ -4,7 +4,9 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardMedia, CardContent } from '@mui/material';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.action.hover,
@@ -16,7 +18,16 @@ const Item = styled(Paper)(({ theme }) => ({
 const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.background.default, color: theme.palette.text.secondary,}) );
 
 function Home() {
+    const [latestReviews, setLatestReviews] = useState(null); 
     const navigate = useNavigate();
+    useEffect(() => {
+        axios.get("https://review-api-2022.herokuapp.com/latestReviews",
+        { withCredentials:true}
+        ).then(res =>{
+            setLatestReviews(res.data);
+        })
+    },[])
+
     return(
         <Box1
         sx={{
@@ -79,12 +90,27 @@ function Home() {
                 <Grid item xs={12} sm={6} md={4}>
                     <Item  variant="outlined">2</Item>
                 </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <Item  variant="outlined">3</Item>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <Item  variant="outlined">4</Item>
-                </Grid>
+                {(latestReviews) => {
+                    return (
+                        <>{
+                        latestReviews.map( review => (
+                            <Grid item xs={12} sm={6} md={4}>
+                                <Item  variant="outlined">
+                                <Typography gutterBottom variant="h3" component="div">
+                                    {review.name}
+                                </Typography>
+                                <Typography gutterBottom variant="h4" component="div">
+                                    {review.description}
+                                </Typography>
+                                <Typography gutterBottom variant="h4" component="div">
+                                    {review.updatedAt}
+                                </Typography>
+                                </Item>
+                            </Grid> 
+                        ))
+                        }</>
+                    )
+                }}
             </Grid>
         </Box1>
 
