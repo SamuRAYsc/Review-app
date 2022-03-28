@@ -30,7 +30,7 @@ function Home() {
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Grid item xs={12} sm={6} md={4}>
                     <Item  variant="outlined">
-                        <CardActionArea>
+                        <CardActionArea onClick={() => {navigate('/category')}}>
                             <CardMedia
                             component="img"
                             height="340"
@@ -47,7 +47,7 @@ function Home() {
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
                     <Item  variant="outlined">
-                        <CardActionArea onClick={() => {navigate('/login')}}>
+                        <CardActionArea onClick={() => {navigate('/category')}}>
                             <CardMedia
                             component="img"
                             height="340"

@@ -5,7 +5,7 @@ import LoginForm from './LoginForm/LoginForm';
 import Navbar from './Navbar/Navbar.js';
 import UserHome from './UserHome.js';
 import Home from './Home.js';
-import Post from './Post.js';
+import Review from './Review.js';
 import Admin from './Admin.js';
 import NotFound from './404.js';
 import IconButton from '@mui/material/IconButton';
@@ -91,7 +91,7 @@ function App() {
                 )
               }
               <Route path="/" element={<Home/>} theme={theme}/>
-              <Route path="post/*" element={<Post/>} theme={theme}/>
+              <Route path="review/*" element={<Review/>} theme={theme}/>
               <Route path="*" element={<NotFound/>} theme={theme}/>
             </Routes>
           </div>

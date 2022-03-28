@@ -2,11 +2,11 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import { DataGrid } from '@mui/x-data-grid';
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.background.default, color: theme.palette.text.secondary,}) )
-
 
 function UserHome() {
   const [userlist, setUserlist] = useState();
@@ -35,7 +35,9 @@ function UserHome() {
         px: '12vw',
         flex: '1 1 auto',
         }}>
-            <p>UserList</p>
+            <Typography gutterBottom variant="h3" component="div">
+                List of Users
+            </Typography>
             <DataGrid
                 rows={rows}
                 columns={columns}
