@@ -21,13 +21,13 @@ const LatestReviewGrid = ({latestReviews}) => {
             <Grid item xs={12} sm={6} md={4} key={review.id}>
                 <CardActionArea onClick={() => {navigate(`/review/${review.id}`)}}>
                     <Item  variant="outlined">
-                    <Typography gutterBottom variant="h3" component="div">
+                    <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="h3" component="div">
                         {review.name}
                     </Typography>
-                    <Typography gutterBottom variant="p" component="div">
+                    <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
                         {review.description}
                     </Typography>
-                    <Typography gutterBottom variant="p" component="div">
+                    <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
                         {review.updatedAt.replace(/[a-zA-Z]/g, ' ')}
                     </Typography>
                     </Item>
