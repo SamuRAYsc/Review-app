@@ -86,7 +86,7 @@ function Home() {
             <Typography gutterBottom variant="h3" component="div">
                 Reviews
             </Typography>
-            <latestReviewGrid prop={latestReviews}></latestReviewGrid>
+            {latestReviews && <latestReviewGrid latestReviews={latestReviews}></latestReviewGrid>}
         </Box1>
 
 )}
