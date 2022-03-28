@@ -2,23 +2,36 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import { DataGrid } from '@mui/x-data-grid';
 import { styled } from '@mui/material/styles';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.background.default, color: theme.palette.text.secondary,}) )
-const columns = [
-    { field: 'id', headerName: 'ID' },
-    { field: 'name', headerName: 'Name', flex:1, renderCell: (params) => (
-        <Link href={`/user/${params.value}`}>{params.value}</Link>
-      )},
-    { field: 'Admin', headerName: 'Admin', flex:1,}
-  ];
-  const rows = [ 
-    { id: 1, name: 'Snow', Admin: 'yes'},
-    { id: 2, name: 'Test', Admin: 'no'},
-    { id: 3, name: 'Kek', Admin: 'no'},
-    { id: 4, name: 'John', Admin: 'no'},
-  ];
+
 
 function UserHome() {
+  const [userlist, setUserlist] = useState();
+  
+  const columns = [
+    { field: 'id', headerName: 'ID' },
+    { field: 'name', headerName: 'Name', flex:1, renderCell: (params) => (
+      <Link href={`/user/${params.value}`}>{params.value}</Link>
+      )},
+      { field: 'Admin', headerName: 'Admin', flex:1,}
+    ];
+    useEffect(() => {
+        axios.get("https://review-api-2022.herokuapp.com/userlist",
+        { withCredentials:true}
+        ).then(res =>{
+            console.log(res);
+        })
+    },[])
+    const rows = [ 
+      { id: 1, name: 'Snow', Admin: 'yes'},
+      { id: 2, name: 'Test', Admin: 'no'},
+      { id: 3, name: 'Kek', Admin: 'no'},
+      { id: 4, name: 'John', Admin: 'no'},
+    ];
+
     return(
         <Box1
         sx={{

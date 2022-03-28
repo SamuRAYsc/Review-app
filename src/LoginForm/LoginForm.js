@@ -25,7 +25,7 @@ function LoginForm() {
             res => console.log(res)
         );
     }
-    const login = () => {
+    const login = () => { 
         axios.post("https://review-api-2022.herokuapp.com/login",{
                 username: authUsername,
                 password: authPassword
@@ -36,9 +36,7 @@ function LoginForm() {
                 setAuthUsername('');
                 setAuthPassword('');
             } else {
-                console.log("session user res ");
-                console.log(res);
-               // navigate(-1);
+                navigate(-1);
             }
             }
         ).catch(err => {
