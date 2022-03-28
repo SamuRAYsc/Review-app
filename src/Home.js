@@ -7,7 +7,7 @@ import { CardActionArea, CardMedia, CardContent } from '@mui/material';
 import {useNavigate} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import latestReviewGrid from './latestReviewGrid';
+import LatestReviewGrid from './LatestReviewGrid';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.action.hover,
@@ -86,7 +86,7 @@ function Home() {
             <Typography gutterBottom variant="h3" component="div">
                 Reviews
             </Typography>
-            {latestReviews && <latestReviewGrid latestReviews={latestReviews}></latestReviewGrid>}
+            {latestReviews && <LatestReviewGrid latestReviews={latestReviews}></LatestReviewGrid>}
         </Box1>
 
 )}

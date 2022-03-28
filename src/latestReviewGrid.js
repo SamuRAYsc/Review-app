@@ -11,7 +11,7 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-const latestReviewGrid = ({data}) => {
+const LatestReviewGrid = ({data}) => {
     console.log(data);
     return (
         <>
@@ -47,4 +47,4 @@ const latestReviewGrid = ({data}) => {
     )
 };
 
-export default latestReviewGrid;
+export default LatestReviewGrid;
