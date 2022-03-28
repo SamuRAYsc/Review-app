@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { UserContext } from '../UserContext';
+import { UserContext } from './UserContext';
 import { useContext } from 'react';
 
 const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.background.default, color: theme.palette.text.secondary,}) )
