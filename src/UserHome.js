@@ -12,11 +12,11 @@ const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.backgrou
 const columns = [
     { field: 'id', headerName: 'ID' },
     { field: 'name', headerName: 'Name', flex:1,  renderCell: (params) => (
-        <Link href={`/review/${params.value.replace(/\s/g, '-')}`} onClick={(e) => {e.stopPropagation();}}>{params.value}</Link>
+        <Link href={`/review/${params.value.split('.')[0].replace(/\s/g, '-')}`} onClick={(e) => {e.stopPropagation();}}>{params.value}</Link>
     )},
     { field: 'updatedAt', headerName: 'last update', flex:1, renderCell: (params) => (
         <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
-            {params.value.replace(/[a-zA-Z]/g, ' ')}
+            {params.value.split('.')[0].replace(/[a-zA-Z]/g, ' ')}
         </Typography>
     )},
   ];
