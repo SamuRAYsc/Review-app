@@ -24,6 +24,7 @@ function Home() {
         axios.get("https://review-api-2022.herokuapp.com/latestReviews",
         { withCredentials:true}
         ).then(res =>{
+            console.log(res);
             setLatestReviews(res.data);
         })
     },[])
@@ -90,7 +91,7 @@ function Home() {
                 <Grid item xs={12} sm={6} md={4}>
                     <Item  variant="outlined">2</Item>
                 </Grid>
-                {(latestReviews) => {
+                {({latestReviews}) => {
                     return (
                         <>{
                         latestReviews.map( review => (
