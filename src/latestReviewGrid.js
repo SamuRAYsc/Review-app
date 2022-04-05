@@ -26,6 +26,9 @@ const LatestReviewGrid = ({latestReviews}) => {
                     <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="h3" component="div">
                         {review.name}
                     </Typography>
+                    <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="h4" component="div">
+                        Обзор на: {review.Creation.name}
+                    </Typography>
                     <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
                         {review.description}
                     </Typography>
