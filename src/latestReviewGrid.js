@@ -16,6 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const LatestReviewGrid = ({latestReviews}) => {
     const navigate = useNavigate();
+    console.log(latestReviews);
     return (
     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {latestReviews.map((review) => (
@@ -31,6 +32,7 @@ const LatestReviewGrid = ({latestReviews}) => {
                     <Stack className='review-info'  direction="row"
                             justifyContent="space-between"
                             alignItems="center"
+                            mt={{xs:1, sm:3}}
                             sx={{
                                 typography: 'body1',
                                 '& > :not(style) + :not(style)': {
@@ -40,7 +42,7 @@ const LatestReviewGrid = ({latestReviews}) => {
                             py={{xs:2, sm:0}}
                             >
                         <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
-                            {review.updatedAt.split('.')[0].replace(/[a-zA-Z]/g, ' ')}
+                            {review.author||'author'}
                         </Typography>
                         <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
                             {review.updatedAt.split('.')[0].replace(/[a-zA-Z]/g, ' ')}
