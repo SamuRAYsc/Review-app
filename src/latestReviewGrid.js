@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import {useNavigate} from 'react-router-dom';
 import { CardActionArea } from '@mui/material';
+import Stack from '@mui/material/Stack';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.action.hover,
@@ -27,9 +28,24 @@ const LatestReviewGrid = ({latestReviews}) => {
                     <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
                         {review.description}
                     </Typography>
-                    <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
-                        {review.updatedAt.split('.')[0].replace(/[a-zA-Z]/g, ' ')}
-                    </Typography>
+                    <Stack className='review-info'  direction="row"
+                            justifyContent="space-between"
+                            alignItems="center"
+                            sx={{
+                                typography: 'body1',
+                                '& > :not(style) + :not(style)': {
+                                ml: 2,
+                                },
+                            }}
+                            py={{xs:2, sm:0}}
+                            >
+                        <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
+                            {review.updatedAt.split('.')[0].replace(/[a-zA-Z]/g, ' ')}
+                        </Typography>
+                        <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
+                            {review.updatedAt.split('.')[0].replace(/[a-zA-Z]/g, ' ')}
+                        </Typography>
+                    </Stack>
                     </Item>
                 </CardActionArea>
          </Grid> 
