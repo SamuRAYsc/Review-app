@@ -45,7 +45,7 @@ const LatestReviewGrid = ({latestReviews}) => {
                             py={{xs:2, sm:0}}
                             >
                         <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
-                            {review.author||'author'}
+                            {review.User.email||'author'}
                         </Typography>
                         <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
                             {review.updatedAt.split('.')[0].replace(/[a-zA-Z]/g, ' ')}
