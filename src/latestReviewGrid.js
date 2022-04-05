@@ -26,7 +26,7 @@ const LatestReviewGrid = ({latestReviews}) => {
                     <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="h3" component="div">
                         {review.name}
                     </Typography>
-                    <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="h4" component="div">
+                    <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="h6" component="div">
                         Обзор на: {review.Creation.name}
                     </Typography>
                     <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
@@ -45,10 +45,10 @@ const LatestReviewGrid = ({latestReviews}) => {
                             py={{xs:2, sm:0}}
                             >
                         <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
-                            {review.User.email||'author'}
+                            Authot:{review.User.email}
                         </Typography>
                         <Typography sx={{wordWrap: "break-word"}} gutterBottom variant="p" component="div">
-                            {review.updatedAt.split('.')[0].replace(/[a-zA-Z]/g, ' ')}
+                            Last update:{review.updatedAt.split('.')[0].replace(/[a-zA-Z]/g, ' ')}
                         </Typography>
                     </Stack>
                     </Item>
