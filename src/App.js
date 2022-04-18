@@ -7,6 +7,7 @@ import UserHome from './UserHome.js';
 import Home from './Home.js';
 import Review from './Review.js';
 import Admin from './Admin.js';
+import AddPost from './AddPost.js';
 import NotFound from './404.js';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
@@ -91,6 +92,7 @@ function App() {
                 )
               }
               <Route path="/" element={<Home/>} theme={theme}/>
+              <Route path="addpost/" element={<AddPost/>} theme={theme}/>
               <Route path="review/*" element={<Review/>} theme={theme}/>
               <Route path="*" element={<NotFound/>} theme={theme}/>
             </Routes>
