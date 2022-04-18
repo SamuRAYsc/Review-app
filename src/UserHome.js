@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { UserContext } from './UserContext';
 import { useContext } from 'react';
+import Button from '@mui/material/Button';
+import {useNavigate} from 'react-router-dom'
 
 const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.background.default, color: theme.palette.text.secondary,}) )
 const columns = [
@@ -23,6 +25,7 @@ const columns = [
 
 function UserHome() {
     const [reviewlist, setReviewlist] = useState();
+    const navigate = useNavigate();
     const user = useContext(UserContext);
     useEffect(() => {
         axios.get("https://review-api-2022.herokuapp.com/userreviews",
@@ -42,6 +45,7 @@ function UserHome() {
             <Typography gutterBottom variant="h3" component="div">
             {user ? (`${user.email}'s`) : 'My'} reviews
             </Typography>
+            <Button variant="contained" id="new_post_button" sx={{py:2, px:3}} onClick={() => {navigate('/')}}>Add post</Button>
             <DataGrid
                 rows={rows}
                 columns={columns}
