@@ -47,15 +47,14 @@ function UserHome() {
             {user ? (`${user.email}'s`) : 'My'} reviews
             </Typography>
             <Stack id="posts-controls"  direction="row"
-                        justifyContent="space-between"
                         alignItems="center"
                         sx={{
                             mt: 3,
                             mb: 2
                         }}>
-                <Button variant="contained" id="new_post_button" sx={{py:1, px:2}} onClick={() => {navigate('/')}}>Add post</Button>
-                <Button variant="contained" id="edit_post_button" sx={{py:1, px:2}} onClick={() => {navigate('/')}}>Edit post</Button>
-                <Button variant="contained" id="delete_selected_posts_button" sx={{py:1, px:2}} onClick={() => {navigate('/')}}>Delete selected posts</Button>
+                <Button variant="contained" id="new_post_button" sx={{py:1, px:2, mr:2}} onClick={() => {navigate('/addpost')}}>Add post</Button>
+                <Button variant="contained" id="edit_post_button" sx={{py:1, px:2, mr:2}} onClick={() => {navigate('/editpost')}}>Edit post</Button>
+                <Button variant="contained" color="error" id="delete_selected_posts_button" sx={{py:1, px:2}} onClick={() => {navigate('/')}}>Delete selected posts</Button>
             </Stack>
             <DataGrid
                 rows={rows}
