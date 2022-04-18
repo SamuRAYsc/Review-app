@@ -7,10 +7,11 @@ import Paper from '@mui/material/Paper';
 import axios from 'axios';
 import { UserContext } from '../UserContext';
 import { useContext } from 'react';
-
+import {useNavigate} from 'react-router-dom'
 
 function Navbar() {
     const user = useContext(UserContext);
+    const navigate = useNavigate();
     return(
         <Paper sx={{ borderRadius: 0 }}>
             <nav className="navbar">
@@ -38,14 +39,14 @@ function Navbar() {
                             >
                     <Link href="/" >Home</Link>
                     {user ? (<>
-                        {user.isAdmin ? (<Link href="/admin" >Admin</Link>) :
-                        <Link href="/userHome" >My reviews</Link>}
-                        <Link href="/" onClick={() => {axios.get("https://review-api-2022.herokuapp.com/logout",
+                        {user.isAdmin ? (<Link href="" onClick={() => {navigate(`/admin`)}}>Admin</Link>) :
+                        <Link href="" onClick={() => {navigate(`/userHome`)}}>My reviews</Link>}
+                        <Link href="" onClick={() => {axios.get("https://review-api-2022.herokuapp.com/logout",
                         { withCredentials:true}
-                        )}}>LogOut</Link>
+                        ).then(navigate(`/`))}}>LogOut</Link>
                         </>
                     ):(
-                        <Link href="/login" >Login</Link>
+                        <Link href="" onClick={() => {navigate(`/login`)}}>Login</Link>
                     )}
 
                 </Stack>
