@@ -9,6 +9,7 @@ import { UserContext } from './UserContext';
 import { useContext } from 'react';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom'
+import Stack from '@mui/material/Stack';
 
 const Box1 = styled(Box)(({theme}) => ({ backgroundColor: theme.palette.background.default, color: theme.palette.text.secondary,}) )
 const columns = [
@@ -45,7 +46,17 @@ function UserHome() {
             <Typography gutterBottom variant="h3" component="div">
             {user ? (`${user.email}'s`) : 'My'} reviews
             </Typography>
-            <Button variant="contained" id="new_post_button" sx={{py:2, px:3}} onClick={() => {navigate('/')}}>Add post</Button>
+            <Stack id="posts-controls"  direction="row"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        sx={{
+                            mt: 3,
+                            mb: 2
+                        }}>
+                <Button variant="contained" id="new_post_button" sx={{py:1, px:2}} onClick={() => {navigate('/')}}>Add post</Button>
+                <Button variant="contained" id="edit_post_button" sx={{py:1, px:2}} onClick={() => {navigate('/')}}>Edit post</Button>
+                <Button variant="contained" id="delete_selected_posts_button" sx={{py:1, px:2}} onClick={() => {navigate('/')}}>Delete selected posts</Button>
+            </Stack>
             <DataGrid
                 rows={rows}
                 columns={columns}
